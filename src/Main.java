@@ -1,6 +1,10 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("test2");
+        int[] myIntArray = new int[10];
+        myIntArray[5] = 50;
+
+        double[] myDoubleArray = new double[9];
+        System.out.println(myIntArray[5]);
     }
 }
