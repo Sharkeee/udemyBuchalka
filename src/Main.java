@@ -7,10 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] myIntarray = getIntegers(3);
-        printArray(myIntarray);
-        sortArray(myIntarray);
-        printArray(myIntarray);
+        int[] myIntarray = getIntegers(5);
+        int[] sorted = sortArray(myIntarray);
+        printArray(sorted);
     }
 
     public static int[] getIntegers(int number) {
@@ -30,26 +29,25 @@ public class Main {
 
     public static int[] sortArray(int[] unsortedArray) {
         int[] sortedArray = new int[unsortedArray.length];
-        for(int i = 0; i<sortedArray.length; i++) {
+        for (int i = 0; i < sortedArray.length; i++) {
             sortedArray[i] = unsortedArray[i];
         }
 
-        int sorting = 1;
+        boolean flag = true;
         int temp = 0;
-        while(sorting == 1) {
+        while (flag) {
 
-            for(int i = 0; i<unsortedArray.length;i++) {
-                if(unsortedArray[i] < unsortedArray[i+1]) {
-                    sorting = 1;
-                    temp = unsortedArray[i];
-                    unsortedArray[i] = unsortedArray[i+1];
-                    unsortedArray[i+1] = temp;
+            flag = false;
+            for (int i = 0; i < sortedArray.length - 1; i++) {
+                if (sortedArray[i] < sortedArray[i + 1]) {
+                    temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i + 1] = temp;
+                    flag = true;
                 }
-                sorting = 0;
             }
         }
-
-        return sortedArray;
+    return sortedArray;
     }
 
 }
